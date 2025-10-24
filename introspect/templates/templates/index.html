@@ -1,0 +1,316 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Inspection Services</title>
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #040000;
+    color: #090909;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header */
+/* Header */
+header {
+    background-color: #f7f7f8;
+    color: rgb(15, 15, 15);
+    padding: 10px 0; /* Reduced padding */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header .logo h1 {
+    font-size: 1.5rem; /* Reduced font size */
+    margin-left: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+nav ul li {
+    margin-left: 15px; /* Reduced spacing between menu items */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem; /* Reduced font size for menu items */
+}
+
+nav ul li a:hover {
+    color: #f4f4f4;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 100px;
+}
+
+nav ul li .login-btn {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav ul li .login-btn:hover {
+    background-color: #ff4c3b;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: rgb(8, 0, 0);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    color: #f4f4f4;
+}
+
+/* Hero Section */
+.hero {
+    position: relative; /* Added to position overlay correctly */
+    background: url("{% static 'images/home.png'%}") no-repeat center center/cover;
+    height: 100vh;
+    color: rgb(254, 253, 253);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    z-index: 1; /* Ensures the overlay stays behind the content */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Ensures content is above the overlay */
+}
+
+.hero h2, .hero p, .btn-primary {
+    z-index: 2;
+    position: relative;
+}
+
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.btn-primary {
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #ff4c3b;
+}
+
+/* Services Section */
+.services {
+    background-color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 30%;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* About Us Section */
+.about {
+    background-color: #e9ecef;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.1rem;
+    color: #666;
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    background-color: #0d6efd;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+.footer-nav {
+    font-size: 1rem;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+}
+
+</style>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>INTROSPECT AI</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="{% url 'login'%}" class="login-btn">LOG IN</a></li> <!-- Login button -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Efficient, Accurate, and Professional Inspections</h2>
+            <p>Your trusted partner in automated AI inspections.</p>
+            <a href="#services" class="btn-primary">Explore Our Services</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <div class="card">
+                    <h3>Building Inspections</h3>
+                    <p>Comprehensive building and structure inspections for safety and compliance.</p>
+                </div>
+                <div class="card">
+                    <h3>Environmental Inspections</h3>
+                    <p>Evaluate and assess environmental risks and hazards at your location.</p>
+                </div>
+                <div class="card">
+                    <h3>Certificate Verification</h3>
+                    <p>Evaluate all the certificates through Artificial Intelligence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>At Introspect, we specialize in delivering fast, reliable, and thorough inspections for a wide range of institutions. Our AI driven Inspection system ensures your compliance and safety.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Introspect &copy; 2024. All Rights Reserved.</p>
+            <div class="footer-nav">
+                <a href="#home">Home</a> | 
+                <a href="#services">Services</a> | 
+                <a href="#about">About Us</a> | 
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

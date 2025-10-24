@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspection Procedure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-size: cover;
+            color: #333;
+        }
+        h1 {
+            color: #0056b3;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.85); /* Transparent white background for readability */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #004494;
+        }
+        .requirements {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #e9f7fe;
+            border-left: 4px solid #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Inspection Procedure</h1>
+
+    <div class="requirements">
+        <h3>Preparation Requirements</h3>
+        <p>Please ensure you have the following instruments ready for the inspection:</p>
+        <ul>
+            <li>A functioning camera (for live streaming and capturing images)</li>
+            <li>Stable internet connection (to ensure smooth data transfer)</li>
+            <li>Any necessary measurement tools (e.g., tape measure, gauges)</li>
+            <li>Access to relevant documents or files related to the inspection</li>
+        </ul>
+    </div>
+
+    <p>Please follow the steps below to complete your inspection:</p>
+    <ol>
+        <li><strong>Initiating the Inspection:</strong> Click the “Start Inspection” button to begin the process.</li>
+        <li><strong>Data Submission:</strong> Provide all necessary information as prompted, including images, documents, or specific parameters.</li>
+        <li><strong>Review and Confirmation:</strong> Review the entered information and confirm that all details are correct.</li>
+        <li><strong>Inspection Process:</strong> Allow the AI system to process your data. Do not navigate away from the page during this process.</li>
+        <li><strong>Receiving Results:</strong> After completion, you will receive a detailed report. Review the findings carefully.</li>
+        <li><strong>Post-Inspection Actions:</strong> Implement any necessary actions based on the results, and reach out to our support for clarification if needed.</li>
+    </ol>
+
+    <button id="startInspectionButton">Start Inspection</button>
+</div>
+
+<script>
+    // Redirect to the inspection page
+    document.getElementById("startInspectionButton").onclick = function() {
+        window.location.href = "{% url 'inspection'%}"; // Change to your actual inspection page URL
+    };
+</script>
+
+</body>
+</html>

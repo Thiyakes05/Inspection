@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICTE Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+.background-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh;
+    background: url("{% static 'images/bglogin.jpg' %}") no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+}
+
+h1 {
+    color:white; 
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center; /* Center the title */
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #ff6a00, #ee0979); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+
+.quote-container {
+    color: white;
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+.login-container {
+    background-color: rgba(0, 0, 50, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 450px; 
+    width: 100%; 
+    text-align: center;
+    margin-top: 20px; 
+}
+
+.form-container {
+    color: white;
+    padding: 20px;
+}
+
+.form-logo {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.input-group input::placeholder {
+    color: #bbb;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    color: white; 
+    text-align: center; 
+    margin-top: 20px; 
+    padding: 10px; 
+}
+
+footer blockquote {
+    font-style: italic; 
+    margin: 0; 
+}
+
+</style>
+<body>
+    <div class="background-container">
+        <div>
+            <h1 class="">INTROSPECT AI</h1>
+
+            <div class="quote-container">
+            </div>
+
+            <div class="login-container">
+                <div class="form-container">
+                    
+                    <img src="{% static 'images/image.png' %}" alt="AICTE Logo" class="form-logo">
+                    <h2>Sign In</h2>
+                    
+                    <!-- Update the form to send a POST request to the login view -->
+                    <form action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input type="text" id="aicte_id" name="aicte_id" placeholder="AICTE ID" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="college_name" name="college_name" placeholder="College Name" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="login-btn">Sign In</button>
+                    </form>
+                </div>
+            </div>
+
+            <footer>
+                <blockquote>
+                    "Education is not preparation for life; education is life itself."
+                    <footer>- John Dewey</footer>
+                </blockquote>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

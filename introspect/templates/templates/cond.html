@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background: url("{% static 'images/condbg.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        h1 {
+            color: #0056b3;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.8); /* Transparency for the container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #004494;
+        }
+        .hidden {
+            display: none;
+        }
+        .disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Terms and Conditions</h1>
+    <p>Last Updated: <span id="date"></span></p>
+    <p>Welcome to IntroSpect! By using our AI-driven inspection system, you agree to the following terms and conditions. Please read them carefully.</p>
+    
+    <h2>1. Acceptance of Terms</h2>
+    <p>By clicking “I Accept,” you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions.</p>
+    
+    <h2>2. Services Provided</h2>
+    <p>Our AI-driven inspection system provides automated analysis and reporting based on the input data you provide. The results are for informational purposes only.</p>
+    
+    <h2>3. User Responsibilities</h2>
+    <ul>
+        <li><strong>Accuracy of Information:</strong> You are responsible for ensuring that all information provided is accurate and complete.</li>
+        <li><strong>Compliance:</strong> You agree to comply with all applicable laws and regulations.</li>
+        <li><strong>Prohibited Use:</strong> You may not use the service for any unlawful purposes.</li>
+    </ul>
+
+    <h2>4. Data Privacy</h2>
+    <p>Please review our <a href="#">Privacy Policy</a> to understand how we collect, use, and protect your information.</p>
+
+    <h2>5. Limitation of Liability</h2>
+    <p>IntroSpect shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of the inspection system.</p>
+
+    <h2>6. Changes to Terms</h2>
+    <p>We reserve the right to modify these Terms and Conditions at any time.</p>
+
+    <h2>7. Governing Law</h2>
+    <p>These Terms shall be governed by the laws of India.</p>
+
+    <div>
+        <input type="checkbox" id="agreeCheckbox" onchange="toggleButton()">
+        <label for="agreeCheckbox">I agree to the Terms and Conditions</label>
+    </div>
+
+    <button id="acceptButton" class="disabled" disabled>I Accept</button>
+    <p id="confirmationMessage" class="hidden">Thank you for accepting the Terms and Conditions!</p>
+</div>
+
+<script>
+    // Set the current date
+    document.getElementById("date").innerText = new Date().toLocaleDateString();
+
+    // Toggle button state based on checkbox
+    function toggleButton() {
+        const checkbox = document.getElementById("agreeCheckbox");
+        const button = document.getElementById("acceptButton");
+        if (checkbox.checked) {
+            button.disabled = false;
+            button.classList.remove("disabled");
+        } else {
+            button.disabled = true;
+            button.classList.add("disabled");
+        }
+    }
+
+    // Handle button click to redirect
+    document.getElementById("acceptButton").onclick = function() {
+        // Redirect to the inspection procedure page
+        window.location.href = "{% url 'procedure' %} ";
+    };
+</script>
+
+</body>
+</html>
